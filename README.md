@@ -25,6 +25,6 @@ start server --name=server1
 
 But in order to have real fun with containers you are probably better of using something like docker-compose or kubernetes. Those examples will come next. 
 
-# Creating an Apache Geode cluster using multiple containers
+# Creating a cluster using multiple containers
 
 ...Create a docker-compose.yml 
