@@ -1,4 +1,5 @@
 FROM    centos:centos6
+MAINTAINER William Markito <william.markito@gmail.com>
 
 RUN	yum install -y wget which tar unzip nc git
 
@@ -10,7 +11,9 @@ ENV	JAVA_HOME $HOME/jdk1.8.0_45
 # clone source and build
 RUN git clone https://github.com/apache/incubator-geode
 RUN cd incubator-geode && ./gradlew build
-ENV	GEODE_HOME /incubator-geode/gemfire-assembly/build/install/geode
+
+RUN echo "Environment variables"
+ENV GEODE_HOME /incubator-geode/gemfire-assembly/build/install/apache-geode
 ENV PATH $PATH:$GEODE_HOME/bin
 
 EXPOSE  8080    
