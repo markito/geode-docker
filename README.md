@@ -17,7 +17,7 @@ docker run -it -p 10334:10334 -p 7575:7575 -p 1099:1099  apache/geode gfsh
 ```
 
 
-From this point you can pretty much follow Apache [Geode in 5 minutes](https://cwiki.apache.org/confluence/display/GEODE/Index#Index-Geodein5minutes) for example:
+From this point you can pretty much follow [Apache Geode in 5 minutes](https://cwiki.apache.org/confluence/display/GEODE/Index#Index-Geodein5minutes) for example:
 
 ```
 start server --name=server1
