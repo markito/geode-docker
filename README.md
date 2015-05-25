@@ -23,7 +23,7 @@ From this point you can pretty much follow [Apache Geode in 5 minutes](https://c
 start server --name=server1
 ```
 
-But in order to have real fun with containers you are probably better of using something like docker-compose or kubernetes. Those examples will come next. 
+But in order to have real fun with containers you are probably better off using something like docker-compose or kubernetes. Those examples will come next. 
 
 # Creating a cluster using multiple containers
 
