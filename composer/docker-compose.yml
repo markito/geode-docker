@@ -1,0 +1,31 @@
+locator:
+  #build: .
+  image: apachegeode/geode:nightly
+  hostname: locator
+  expose:
+   - "10334"
+   - "1099"
+   - "7575"
+  ports:
+   - "1099:1099"
+   - "10334:10334"
+   - "7575:7575"
+  volumes:
+   - scripts/:/data/
+  command: /data/gfshWrapper.sh gfsh start locator --name=locator --mcast-port=0
+
+server:
+  #build: .
+  image: apachegeode/geode:nightly
+  # hostname: server
+  links:
+   - locator:locator
+  expose:
+   - "8080"
+   - "40404"
+   - "1099"
+  ports:
+   - "40404"
+  volumes:
+   - scripts/:/data/
+  command: /data/startServer.sh
