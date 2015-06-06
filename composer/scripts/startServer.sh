@@ -1,5 +1,7 @@
 #!/bin/sh
-gfsh start server --name=$HOSTNAME --locators=locator[10334]
+mkdir -p /data/$HOSTNAME
+
+gfsh start server --name=$HOSTNAME --locators=locator[10334] --dir=/data/$HOSTNAME/ "$@"
 
 while true; do
     sleep 10

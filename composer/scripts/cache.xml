@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!-- Server.xml
+     Configures a cache to serve caching clients at port 40405.
+     The example region also is configured with a loader.
+-->
+
+<!DOCTYPE cache PUBLIC
+  "-//GemStone Systems, Inc.//GemFire Declarative Caching 6.5//EN"
+  "http://www.gemstone.com/dtd/cache6_5.dtd">
+<cache>
+    <cache-server port="40404" hostname-for-clients="192.168.99.100" />
+    
+    <region name="exampleRegion">
+      <region-attributes refid="REPLICATE">
+      </region-attributes>
+    </region>
+
+</cache>

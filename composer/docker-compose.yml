@@ -2,6 +2,7 @@ locator:
   #build: .
   image: apachegeode/geode:nightly
   hostname: locator
+  mem_limit: 512m
   expose:
    - "10334"
    - "1099"
@@ -10,14 +11,16 @@ locator:
    - "1099:1099"
    - "10334:10334"
    - "7575:7575"
+   - "7070:7070"
   volumes:
    - scripts/:/data/
-  command: /data/gfshWrapper.sh gfsh start locator --name=locator --mcast-port=0
+  command: /data/gfshWrapper.sh gfsh start locator --J="-Dgemfire.jmx-manager-hostname-for-clients=192.168.99.100" --hostname-for-clients=192.168.99.100 --name=locator --mcast-port=0 
 
 server:
   #build: .
   image: apachegeode/geode:nightly
   # hostname: server
+  mem_limit: 2g
   links:
    - locator:locator
   expose:
@@ -28,4 +31,4 @@ server:
    - "40404"
   volumes:
    - scripts/:/data/
-  command: /data/startServer.sh
+  command: /data/startServer.sh --hostname-for-clients=192.168.99.100 --max-heap=1G
