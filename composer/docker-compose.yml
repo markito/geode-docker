@@ -28,7 +28,7 @@ server:
    - "40404"
    - "1099"
   ports:
-   - "40404"
+   - "40404:40404"
   volumes:
    - scripts/:/data/
   command: /data/startServer.sh --hostname-for-clients=192.168.99.100 --max-heap=1G
