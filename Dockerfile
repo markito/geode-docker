@@ -10,7 +10,7 @@ ENV	JAVA_HOME $HOME/jdk1.8.0_45
 RUN	yum install -y wget which tar git \
 	&& wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.tar.gz" \
 	&& tar xf jdk-8u45-linux-x64.tar.gz \
-	&& git clone https://github.com/apache/incubator-geode \
+	&& git clone -b develop https://github.com/apache/incubator-geode.git \
 	&& cd incubator-geode \
 	&& ./gradlew build -Dskip.tests=true \
 	&& ls /incubator-geode | grep -v gemfire-assembly | xargs rm -rf \
