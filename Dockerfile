@@ -2,7 +2,7 @@ FROM centos:latest
 MAINTAINER William Markito <william.markito@gmail.com>
 
 LABEL Vendor="Apache Geode"
-LABEL version=nightly
+LABEL version=unstable
 
 # download JDK 8
 ENV	JAVA_HOME $HOME/jdk1.8.0_45
