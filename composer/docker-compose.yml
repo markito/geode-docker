@@ -1,6 +1,6 @@
 locator:
   #build: .
-  image: apachegeode/geode:nightly
+  image: apachegeode/geode:unstable
   hostname: locator
   mem_limit: 512m
   expose:
@@ -18,7 +18,7 @@ locator:
 
 server:
   #build: .
-  image: apachegeode/geode:nightly
+  image: apachegeode/geode:unstable
   # hostname: server
   mem_limit: 2g
   links:
