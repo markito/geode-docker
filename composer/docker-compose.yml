@@ -1,25 +1,23 @@
 locator:
-  #build: .
-  image: apachegeode/geode:unstable
+  image: apachegeode/geode:1.0.0-incubating.M1
   hostname: locator
   mem_limit: 512m
   expose:
    - "10334"
    - "1099"
    - "7575"
+  #  - "1024"
   ports:
    - "1099:1099"
    - "10334:10334"
    - "7575:7575"
    - "7070:7070"
   volumes:
-   - scripts/:/data/
-  command: /data/gfshWrapper.sh gfsh start locator --J="-Dgemfire.jmx-manager-hostname-for-clients=192.168.99.100" --hostname-for-clients=192.168.99.100 --name=locator --mcast-port=0 
+   - ./scripts/:/scripts/
+  command: /scripts/gfshWrapper.sh gfsh start locator --J="-Dgemfire.jmx-manager-hostname-for-clients=192.168.99.100" --hostname-for-clients=192.168.99.100 --name=locator --mcast-port=0
 
 server:
-  #build: .
-  image: apachegeode/geode:unstable
-  # hostname: server
+  image: apachegeode/geode:1.0.0-incubating.M1
   mem_limit: 2g
   links:
    - locator:locator
@@ -28,7 +26,8 @@ server:
    - "40404"
    - "1099"
   ports:
-   - "40404:40404"
+   - "40404"
   volumes:
-   - scripts/:/data/
-  command: /data/startServer.sh --hostname-for-clients=192.168.99.100 --max-heap=1G
+   - ./scripts/:/scripts/
+   #- scripts/:/data/
+  command: /scripts/startServer.sh --server-port=40404 --hostname-for-clients=192.168.99.100 --max-heap=1G
