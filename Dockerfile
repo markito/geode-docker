@@ -2,7 +2,7 @@ FROM centos:7
 MAINTAINER William Markito <william.markito@gmail.com>
 
 LABEL Vendor="Apache Geode"
-LABEL version=v1.0.0-incubating.M2
+LABEL version=1.0.0
 
 # download JDK 8
 ENV	JAVA_HOME $HOME/jdk1.8.0_72
