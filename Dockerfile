@@ -1,4 +1,4 @@
-FROM java:openjdk-8
+FROM java:latest
 MAINTAINER William Markito <markito@apache.org>
 
 LABEL Vendor="Apache Geode"
